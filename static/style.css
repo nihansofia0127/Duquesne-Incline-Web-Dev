@@ -1,0 +1,132 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* General Styles */
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #1E1E1E;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    height: 60px;
+}
+
+.site-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-img {
+    max-width: 60%; /* Reduce size of main page picture */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    color: #FFFFFF;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #D9D9D9;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #BDBDBD;
+}
+
+p, ul {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #E0E0E0;
+    line-height: 1.7;
+    margin-left: 60px;  /* Adjust this value as needed */
+    margin-right: 60px; /* Adjust this value as needed */
+}
+
+
+
+/* Info Sections */
+.info, .contact, .gift-shop {
+    background-color: #1E1E1E;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #1E1E1E;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer p {
+    font-size: 16px;
+    color: #BDBDBD;
+}
