@@ -71,6 +71,16 @@ nav ul li a {
     margin: 20px auto;
 }
 
+.gift-item img {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto; 
+    display: block; 
+    margin: 10px auto; 
+    border-radius: 5px; 
+}
+
+
 /* Typography */
 h1 {
     font-family: 'Oswald', sans-serif;
@@ -94,14 +104,10 @@ h3 {
 
 p, ul {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     color: #E0E0E0;
-    line-height: 1.7;
-    margin-left: 60px;  /* Adjust this value as needed */
-    margin-right: 60px; /* Adjust this value as needed */
+    line-height: 1.6;
 }
-
-
 
 /* Info Sections */
 .info, .contact, .gift-shop {
@@ -129,4 +135,18 @@ footer nav ul {
 footer p {
     font-size: 16px;
     color: #BDBDBD;
+}
+
+/* Link Styling for Reservation */
+.info a {
+    color: #E0E0E0;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #FFFFFF;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.info a:hover {
+    color: #FFFFFF;
+    border-bottom: 2px solid #E0E0E0;
 }
