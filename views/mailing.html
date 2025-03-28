@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailing List - Duquesne Incline</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../static/DuqInclineLogo.png" alt="Duquesne Incline Logo" class="logo">
+        </div>
+        <h1>Duquesne Incline</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="hours.html">Hours and Fares</a></li>
+                <li><a href="field.html">Field Trip</a></li>
+                <li><a href="giftshop.html">Gift Shop</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="things.html">Things to Do</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="mailing-list">
+            <h2>Join Our Mailing List</h2>
+            <form id="mailingListForm">
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        minlength="2" 
+                        maxlength="50"
+                    >
+                    <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        maxlength="100"
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input 
+                        type="checkbox" 
+                        id="smsConsent" 
+                        name="smsConsent"
+                    >
+                    <label for="smsConsent">I would like to receive messages via SMS</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Mobile Phone (Optional)</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        pattern="[0-9]{10}"
+                        minlength="10"
+                        maxlength="10"
+                        placeholder="10 digit phone number"
+                    >
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="zipCode">Zip Code (Optional)</label>
+                    <input 
+                        type="text" 
+                        id="zipCode" 
+                        name="zipCode" 
+                        pattern="[0-9]{5}"
+                        minlength="5"
+                        maxlength="5"
+                        placeholder="5 digit zip code"
+                    >
+                    <span class="error-message" id="zipCodeError"></span>
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="submit" 
+                        id="submit_button" 
+                        value="Join Mailing List"
+                    >
+                </div>
+
+                <p id="formError" class="form-error"></p>
+                <p id="formSuccess" class="form-success"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="parking.html">Parking</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 Duquesne Incline</p>
+    </footer>
+</body>
+</html>
