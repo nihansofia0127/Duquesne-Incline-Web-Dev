@@ -150,3 +150,88 @@ footer p {
     color: #FFFFFF;
     border-bottom: 2px solid #E0E0E0;
 }
+
+/* Contact Table Styles */
+.contact-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background-color: #1E1E1E;
+}
+
+.contact-table thead {
+    background-color: #2A2A2A;
+}
+
+.contact-table th {
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    padding: 15px;
+    color: #FFFFFF;
+    font-weight: 700;
+    border-bottom: 2px solid #3A3A3A;
+}
+
+.contact-table td {
+    font-family: 'Open Sans', sans-serif;
+    padding: 15px;
+    color: #E0E0E0;
+    border-bottom: 1px solid #2A2A2A;
+    line-height: 1.6;
+}
+
+.contact-table tr:last-child td {
+    border-bottom: none;
+}
+
+.contact-table td a {
+    color: #E0E0E0;
+    text-decoration: none;
+    border-bottom: 2px solid #FFFFFF;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.contact-table td a:hover {
+    color: #FFFFFF;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 600px) {
+    .contact-table, 
+    .contact-table thead, 
+    .contact-table tbody, 
+    .contact-table th, 
+    .contact-table td, 
+    .contact-table tr {
+        display: block;
+    }
+
+    .contact-table thead {
+        display: none;
+    }
+
+    .contact-table tr {
+        margin-bottom: 10px;
+        border-bottom: 2px solid #2A2A2A;
+    }
+
+    .contact-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .contact-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+}
