@@ -603,3 +603,66 @@ footer p {
     background: none;
     border: none;
 }
+
+
+/* Virtual Site Map */
+/* Sitemap Specific Styles */
+.sitemap-container {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    padding: 0;
+    text-align: center;
+    margin: 20px;
+    /* padding: 15px; */
+    border-radius: 8px;
+}
+
+.sitemap-title {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Sitemap Styling */
+.sitemap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sitemap ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sitemap li {
+    margin: 10px 0;
+    position: relative;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: inline-block;
+    background: #ffffff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sitemap li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sitemap .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sitemap .sub-menu li {
+    background: #ddd;
+    border-color: #666;
+}
