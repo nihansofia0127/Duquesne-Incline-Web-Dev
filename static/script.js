@@ -82,11 +82,12 @@ $(document).ready(function() {
     const lat = 40.4406;
     const lon = -79.9959;
     
+    // Citation: OpenWeatherMap API
     const apiKey = '79e1dec5ae49acf58e2e8c55eff60aaa';
     
     // Fetch current weather
     $.ajax({
-        url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`,
+        url: `https://api.openweathermap.org/data/2.5/weather?lat=40.4406&lon=-79.9959&units=imperial&appid=79e1dec5ae49acf58e2e8c55eff60aaa`,
         method: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -101,7 +102,7 @@ $(document).ready(function() {
     
     function fetchForecast(lat, lon, apiKey, currentData) {
         $.ajax({
-            url: `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`,
+            url: `https://api.openweathermap.org/data/2.5/weather?lat=40.4406&lon=-79.9959&units=imperial&appid=79e1dec5ae49acf58e2e8c55eff60aaa`,
             method: 'GET',
             dataType: 'json',
             success: function(forecastData) {
@@ -122,7 +123,6 @@ $(document).ready(function() {
         // Current weather section
         const currentWeather = $('<div class="current-weather"></div>');
         currentWeather.append(`<h3>Current Conditions</h3>`);
-        currentWeather.append(`<img src="https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png" alt="${current.weather[0].description}" class="weather-icon">`);
         currentWeather.append(`<div class="temp">${Math.round(current.main.temp)}°F</div>`);
         currentWeather.append(`<div class="conditions">${current.weather[0].description}</div>`);
         currentWeather.append(`<div>Feels like: ${Math.round(current.main.feels_like)}°F</div>`);
@@ -133,7 +133,7 @@ $(document).ready(function() {
         $('#weather-data').append(currentWeather);
         
         // Process and display forecast if available
-        if (forecast) {
+        if (forecast && forecast.list) {
             // Get one forecast per day (noon)
             const dailyForecasts = {};
             
@@ -161,7 +161,6 @@ $(document).ready(function() {
                 const forecastDay = $('<div class="forecast-day"></div>');
                 
                 forecastDay.append(`<div>${day}</div>`);
-                forecastDay.append(`<img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png" alt="${item.weather[0].description}" class="weather-icon">`);
                 forecastDay.append(`<div class="temp">${Math.round(item.main.temp)}°F</div>`);
                 forecastDay.append(`<div class="conditions">${item.weather[0].description}</div>`);
                 

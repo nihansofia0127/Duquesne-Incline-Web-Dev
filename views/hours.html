@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hours & Fares - Duquesne Incline</title>
     <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -38,8 +40,17 @@
                 <li>Children 5 and Under: Free</li>
                 <li>University Students (Pitt, CMU, Chatham): Free with ID</li>
             </ul>
-        </section>      
+        </section>
         
+        <section class="weather-widget">
+            <h2>Pittsburgh Weather</h2>
+            <div id="weather-data" class="weather-container">
+                <div class="loading">Loading weather information...</div>
+            </div>
+            <div class="weather-note">
+                <p>Weather data is provided to help you plan your visit to the Duquesne Incline. The incline offers beautiful views in all weather conditions, but visibility may be affected during heavy rain, snow, or fog.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
