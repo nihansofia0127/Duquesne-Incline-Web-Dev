@@ -203,3 +203,28 @@ $(document).ready(function() {
         $('#weather-data').append(`<div class="weather-note"><strong>Visit Recommendation:</strong> ${recommendation}</div>`);
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close-lightbox");
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+        img.addEventListener("click", function () {
+            lightboxImg.src = this.src;
+            lightbox.style.display = "flex";
+        });
+    });
+
+    closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener("click", function (e) {
+        if (e.target !== lightboxImg) {
+            lightbox.style.display = "none";
+        }
+    });
+});
