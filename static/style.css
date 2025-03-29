@@ -305,3 +305,241 @@ footer p {
         margin: 10px;
     }
 }
+
+
+
+
+/* Resources Section Styling */
+#resources {
+    background-color: #1E1E1E;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#resources h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    border-bottom: 2px solid #3A3A3A;
+    padding-bottom: 10px;
+}
+
+#resources ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+#resources ul li {
+    flex: 1 0 250px;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+#resources ul li:hover {
+    transform: translateY(-5px);
+}
+
+#resources ul li a {
+    display: block;
+    color: #E0E0E0;
+    text-decoration: none;
+    padding: 15px;
+    background-color: #2A2A2A;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#resources ul li a:hover {
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#resources .resource-text {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#resources .social-icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+#resources .social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments for the resources section */
+@media screen and (max-width: 600px) {
+    #resources ul {
+        flex-direction: column;
+    }
+    
+    #resources ul li {
+        flex: 1 0 100%;
+    }
+}
+
+
+/* Weather Widget Styling */
+.weather-widget {
+    background-color: #1E1E1E;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-widget h2 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 2px solid #3A3A3A;
+    padding-bottom: 10px;
+}
+
+.weather-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.current-weather {
+    flex: 1 1 300px;
+    background-color: #2A2A2A;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.forecast {
+    flex: 1 1 100%;
+    background-color: #2A2A2A;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.forecast-days {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.forecast-day {
+    flex: 1 1 120px;
+    background-color: #3A3A3A;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.weather-icon {
+    width: 64px;
+    height: 64px;
+    margin: 10px auto;
+}
+
+.temp {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 10px 0;
+}
+
+.conditions {
+    color: #E0E0E0;
+    margin-bottom: 10px;
+}
+
+.loading {
+    text-align: center;
+    color: #E0E0E0;
+    padding: 20px;
+}
+
+.weather-note {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3A3A3A;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #BDBDBD;
+}
+
+.error {
+    color: #FF6B6B;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .weather-widget {
+        padding: 15px;
+    }
+    
+    .current-weather, .forecast {
+        flex: 1 1 100%;
+    }
+    
+    .forecast-day {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Gift Shop Section */
+.gift-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFFFFF;  
+    background: #1E1E1E;
+    border: 2px solid #E0E0E0; 
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(224, 224, 224, 0.1);
+}
+
+.gift-btn:hover {
+    background: #E0E0E0; 
+    color: #121212;
+    border-color: #FFFFFF; 
+    box-shadow: 0 6px 10px rgba(224, 224, 224, 0.2);
+    transform: translateY(-2px);
+}
+
+.gift-btn:active {
+    transform: translateY(1px);
+    background: #FFFFFF; 
+    color: #121212;
+    border-color: #1E1E1E;
+}

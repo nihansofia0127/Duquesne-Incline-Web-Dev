@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gift Shop - Duquesne Incline</title>
     <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -28,28 +30,34 @@
         <section class="info">
             <h2>Come Visit Our Gift Shop</h2>
             <p>We offer many one-of-a-kind items that were custom-made for the Incline.</p>
-
-            <div class="gift-item">
-                <img src="../static/shop1.jpg" alt="Gift Shop Display">
-                <p>Many shot glasses are for sale including a slanted one.</p>
+        
+            <div id="shortGiftShop">
+                <p>Our gift shop features unique Duquesne Incline souvenirs including slanted shot glasses, handmade wooden ornaments, Wendell August Forge metal plates, framed pictures, custom shirts, and a wide selection of postcards.</p>
+                <button id="readMoreGiftBtn" class="gift-btn">Read More</button>
+            </div>
+            
+            <div id="fullGiftShop" style="display: none;">
+                <div class="gift-item">
+                    <img src="../static/shop1.jpg" alt="Gift Shop Display">
+                    <p>Many shot glasses are for sale including a slanted one.</p>
+                </div>
+                <div class="gift-item">
+                    <img src="../static/shop2.jpg" alt="Slanted Shot Glass">
+                    <p>This handmade Incline wooden ornament is a big seller and is only available here.</p>
+                </div>
+                <div class="gift-item">
+                    <img src="../static/shop3.jpg" alt="Wooden Ornament">
+                    <p>A full assortment of Wendell August Forge metal plates.</p>
+                </div>
+                <div class="gift-item">
+                    <img src="../static/shop4.jpg" alt="Metal Plates">
+                    <p>All types of pictures framed and unframed.</p>
+                    <p>Custom designed shirts available in youth and adult sizes.</p>
+                    <p>We also have one of the best selections of postcards in the city.</p>
+                </div>
+                <button id="readLessGiftBtn" class="gift-btn">Read Less</button>
             </div>
 
-            <div class="gift-item">
-                <img src="../static/shop2.jpg" alt="Slanted Shot Glass">
-                <p>This handmade Incline wooden ornament is a big seller and is only available here.</p>
-            </div>
-
-            <div class="gift-item">
-                <img src="../static/shop3.jpg" alt="Wooden Ornament">
-                <p>A full assortment of Wendell August Forge metal plates.</p>
-            </div>
-
-            <div class="gift-item">
-                <img src="../static/shop4.jpg" alt="Metal Plates">
-                <p>All types of pictures framed and unframed.</p>
-                <p>Custom designed shirts available in youth and adult sizes.</p>
-                <p>We also have one of the best selections of postcards in the city.</p>
-            </div>
         </section>
     </main>
     
@@ -58,7 +66,7 @@
             <ul>
                 <li><a href="parking.html">Parking</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="mailing.html">Mailing List</a></li>
+                <li><a href="connect.html">Connect</a></li>
 
             </ul>
         </nav>
