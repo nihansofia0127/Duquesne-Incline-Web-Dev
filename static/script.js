@@ -1,40 +1,40 @@
-$(document).ready(function () {
+// the gift shop section
+$(document).ready(function() {
+    // Initial
     $("#fullGiftShop").hide();
     $("#readLessGiftBtn").hide();
 
-    $("#readMoreGiftBtn").click(function () {
+    // Read more button click 
+    $("#readMoreGiftBtn").click(function() {
         $("#shortGiftShop").hide();
         $("#fullGiftShop").fadeIn();
         $("#readLessGiftBtn").show();
     });
 
-    $("#readLessGiftBtn").click(function () {
-        $("#fullGiftShop").fadeOut(function () {
+    // Read less button click 
+    $("#readLessGiftBtn").click(function() {
+        $("#fullGiftShop").fadeOut(function() {
             $("#shortGiftShop").show();
             $("#readLessGiftBtn").hide();
         });
     });
 });
 
-
+// Handles mailing list form validation and processing
 $(document).ready(function() {
     $('#submit_button').on('click', function(event) {
-        
         let valid = true;
 
-        // Name validation
         const name = $('#name');
         if (!name[0].checkValidity()) {
             valid = false;
         }
 
-        // Email validation
         const email = $('#email');
         if (!email[0].checkValidity()) {
             valid = false;
         }
 
-        // Phone validation (optional, but must be 10 digits if filled)
         const phone = $('#phone');
         if (phone.val().trim() !== "") {
             const phoneRegex = /^[0-9]{10}$/;
@@ -43,7 +43,6 @@ $(document).ready(function() {
             } 
         }
 
-        // Zip code validation (optional, but must be 5 digits if filled)
         const zipCode = $('#zipCode');
         if (zipCode.val().trim() !== "") {
             const zipRegex = /^[0-9]{5}$/;
@@ -52,9 +51,7 @@ $(document).ready(function() {
             }
         }
 
-        // If form is valid, process submission
         if (valid) {
-            // Collect form data
             const formData = {
                 name: name.val().trim(),
                 email: email.val().trim(),
@@ -67,27 +64,27 @@ $(document).ready(function() {
             
             $('#mailingListForm')[0].reset();
             $('#formSuccess').text("Thank you for joining our mailing list!");
-            $('#mailingListForm')[0].reset();
-            
+            formError.style.display = "none"; 
         } else {
             $('#formError').text("Please correct the errors in the form.");
+            formSuccess.style.display = "none";
         }
     });
 });
 
-
-
+// Weather
 $(document).ready(function() {
-    // Pittsburgh coordinates
+    // Pitt coordinates
     const lat = 40.4406;
     const lon = -79.9959;
     
-    // Citation: OpenWeatherMap API
+    // Cite: API key for OpenWeatherMap
     const apiKey = '79e1dec5ae49acf58e2e8c55eff60aaa';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
     
     // Fetch current weather
     $.ajax({
-        url: `https://api.openweathermap.org/data/2.5/weather?lat=40.4406&lon=-79.9959&units=imperial&appid=79e1dec5ae49acf58e2e8c55eff60aaa`,
+        url: weatherUrl,
         method: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -102,7 +99,7 @@ $(document).ready(function() {
     
     function fetchForecast(lat, lon, apiKey, currentData) {
         $.ajax({
-            url: `https://api.openweathermap.org/data/2.5/weather?lat=40.4406&lon=-79.9959&units=imperial&appid=79e1dec5ae49acf58e2e8c55eff60aaa`,
+            url: weatherUrl,
             method: 'GET',
             dataType: 'json',
             success: function(forecastData) {
@@ -116,11 +113,20 @@ $(document).ready(function() {
         });
     }
     
+
     function displayWeather(current, forecast) {
-        // Clear loading message
         $('#weather-data').empty();
         
-        // Current weather section
+        displayCurrentWeather(current);
+        
+        if (forecast && forecast.list) {
+            displayForecast(forecast);
+        }
+        
+        displayWeatherRecommendation(current);
+    }
+
+    function displayCurrentWeather(current) {
         const currentWeather = $('<div class="current-weather"></div>');
         currentWeather.append(`<h3>Current Conditions</h3>`);
         currentWeather.append(`<div class="temp">${Math.round(current.main.temp)}°F</div>`);
@@ -131,47 +137,47 @@ $(document).ready(function() {
         
         // Add current weather to container
         $('#weather-data').append(currentWeather);
+    }
+    
+    function displayForecast(forecast) {
+        // Get one forecast per day (noon)
+        const dailyForecasts = {};
         
-        // Process and display forecast if available
-        if (forecast && forecast.list) {
-            // Get one forecast per day (noon)
-            const dailyForecasts = {};
+        forecast.list.forEach(item => {
+            const date = new Date(item.dt * 1000);
+            const day = date.toLocaleDateString('en-US', {weekday: 'short'});
             
-            forecast.list.forEach(item => {
-                const date = new Date(item.dt * 1000);
-                const day = date.toLocaleDateString('en-US', {weekday: 'short'});
-                
-                // Use noon forecast for each day
-                if (date.getHours() >= 11 && date.getHours() <= 13) {
-                    if (!dailyForecasts[day]) {
-                        dailyForecasts[day] = item;
-                    }
+            // Use noon forecast for each day
+            if (date.getHours() >= 11 && date.getHours() <= 13) {
+                if (!dailyForecasts[day]) {
+                    dailyForecasts[day] = item;
                 }
-            });
-            
-            // Create forecast section
-            const forecastSection = $('<div class="forecast"></div>');
-            forecastSection.append('<h3>5-Day Forecast</h3>');
-            
-            const forecastDays = $('<div class="forecast-days"></div>');
-            
-            // Get up to 5 days from the daily forecasts
-            Object.keys(dailyForecasts).slice(0, 5).forEach(day => {
-                const item = dailyForecasts[day];
-                const forecastDay = $('<div class="forecast-day"></div>');
-                
-                forecastDay.append(`<div>${day}</div>`);
-                forecastDay.append(`<div class="temp">${Math.round(item.main.temp)}°F</div>`);
-                forecastDay.append(`<div class="conditions">${item.weather[0].description}</div>`);
-                
-                forecastDays.append(forecastDay);
-            });
-            
-            forecastSection.append(forecastDays);
-            $('#weather-data').append(forecastSection);
-        }
+            }
+        });
         
-        // Add visit recommendations based on current weather
+        // Create forecast section
+        const forecastSection = $('<div class="forecast"></div>');
+        forecastSection.append('<h3>5-Day Forecast</h3>');
+        
+        const forecastDays = $('<div class="forecast-days"></div>');
+        
+        // Get up to 5 days from the daily forecasts
+        Object.keys(dailyForecasts).slice(0, 5).forEach(day => {
+            const item = dailyForecasts[day];
+            const forecastDay = $('<div class="forecast-day"></div>');
+            
+            forecastDay.append(`<div>${day}</div>`);
+            forecastDay.append(`<div class="temp">${Math.round(item.main.temp)}°F</div>`);
+            forecastDay.append(`<div class="conditions">${item.weather[0].description}</div>`);
+            
+            forecastDays.append(forecastDay);
+        });
+        
+        forecastSection.append(forecastDays);
+        $('#weather-data').append(forecastSection);
+    }
+
+    function displayWeatherRecommendation(current) {
         let recommendation = '';
         const conditions = current.weather[0].main.toLowerCase();
         const temp = current.main.temp;
@@ -197,5 +203,3 @@ $(document).ready(function() {
         $('#weather-data').append(`<div class="weather-note"><strong>Visit Recommendation:</strong> ${recommendation}</div>`);
     }
 });
-
-
